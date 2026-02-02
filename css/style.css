@@ -121,6 +121,9 @@ button.no:hover {
     margin: 0;
     color: white;
     font-weight: bold;
+    font-family: 'Georgia', 'Garamond', serif;
+    font-style: italic;
+    letter-spacing: 0.05em;
 }
 
 @keyframes pulse {
