@@ -66,6 +66,18 @@ document.addEventListener('DOMContentLoaded', () => {
         obeso.style.transition = 'left 1s ease-in-out';
         document.body.appendChild(obeso);
 
+        // Immagine da sinistra
+        const ollie = document.createElement('img');
+        ollie.src = 'images/ollie.png';
+        ollie.style.position = 'fixed';
+        ollie.style.left = '-300px';
+        ollie.style.top = '70%';
+        ollie.style.height = '50%'
+        ollie.style.transform = 'translateY(-50%)';
+        ollie.style.zIndex = '999';
+        ollie.style.transition = 'left 1s ease-in-out';
+        document.body.appendChild(ollie);
+
         // Immagine da destra
         const misci = document.createElement('img');
         misci.src = 'images/misci.png';
@@ -73,14 +85,27 @@ document.addEventListener('DOMContentLoaded', () => {
         misci.style.right = '-300px';
         misci.style.top = '50%';
         misci.style.transform = 'translateY(-50%)';
-        misci.style.zIndex = '999';
+        misci.style.zIndex = '998';
         misci.style.transition = 'right 1s ease-in-out';
         document.body.appendChild(misci);
 
+        // Immagine da destra
+        const peach = document.createElement('img');
+        peach.src = 'images/peach.png';
+        peach.style.position = 'fixed';
+        peach.style.right = '-300px';
+        peach.style.top = '70%';
+        peach.style.transform = 'translateY(-50%)';
+        peach.style.zIndex = '999';
+        peach.style.transition = 'right 1s ease-in-out';
+        document.body.appendChild(peach);
+
         // Trigger animazione
         setTimeout(() => {
-            obeso.style.left = 'calc(50% - 200px)';
-            misci.style.right = 'calc(50% - 200px)';
+            obeso.style.left = 'calc(50% - 400px)';
+            ollie.style.left = 'calc(50% - -50px)';
+            misci.style.right = 'calc(50% - 150px)';
+            peach.style.right = 'calc(50% - 200px)';
         }, 10);
     };
 
