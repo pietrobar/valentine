@@ -39,6 +39,7 @@ main {
     text-align: center;
     max-width: 300px;
     width: 90%;
+    animation: slideUp 0.6s ease-out;
 }
 
 .card h1 {
@@ -121,7 +122,7 @@ button.no:hover {
     margin: 0;
     color: white;
     font-weight: bold;
-    font-family: 'Georgia', 'Garamond', serif;
+    font-family: 'Snell Roundhand', 'Garamond', serif;
     font-style: italic;
     letter-spacing: 0.05em;
 }
@@ -132,6 +133,17 @@ button.no:hover {
     }
     50% {
         box-shadow: 0 4px 20px rgba(255, 102, 153, 0.6);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
