@@ -1,12 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const envelope = document.getElementById('envelope');
+    const card = document.getElementById('card');
     const noButton = document.getElementById('no-button');
     let attemptCount = 0;
 
     const barkSound = new Audio('sounds/growl.mp3');
     let audioUnlocked = false;
 
-    // Sblocco audio su vera interazione
-    document.addEventListener('click', () => {
+    // Apertura busta
+    envelope.addEventListener('click', () => {
+        envelope.style.display = 'none';
+        card.style.display = 'block';
+        
+        // Sblocco audio
         barkSound.play()
             .then(() => {
                 barkSound.pause();
@@ -14,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 audioUnlocked = true;
             })
             .catch(() => {});
-    }, { once: true });
+    });
 
     const getRandomPosition = (element) => {
         const rect = element.getBoundingClientRect();
