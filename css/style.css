@@ -1,19 +1,82 @@
+/* Generale */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+    font-family: 'Arial', sans-serif;
+    background-color: #ffe6e6;
+    color: #b30047;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 2rem;
+    overflow: hidden; /* niente scroll */
 }
 
+/* Header */
 header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
     text-align: center;
+    margin-bottom: 20px;
 }
 
+/* Card */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.card h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Button */
+button {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button.yes {
+    background-color: #ff6699;
+
+}
+
+button.no {
+    background-color: #a9a9a9; /* Grigio */
+    color: black;
+    position: fixed;
+    transition: top 0.2s ease-out, left 0.2s ease-out;
+    padding: 5px 10px;
+    font-size: 10px;
+
+}
+
+button.yes:hover {
+    background-color: #e6005c;
+}
+
+button.no:hover {
+    background-color: brown;
+}
+
+/* Footer */
 footer {
     background: #333;
     color: #fff;
@@ -23,3 +86,6 @@ footer {
     bottom: 0;
     width: 100%;
 }
+  
+
+  
