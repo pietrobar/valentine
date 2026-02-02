@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const envelope = document.getElementById('envelope');
     const card = document.getElementById('card');
     const noButton = document.getElementById('no-button');
+    const yesButton = document.getElementById('yes-button');
     let attemptCount = 0;
 
     const barkSound = new Audio('sounds/growl.mp3');
@@ -29,6 +30,47 @@ document.addEventListener('DOMContentLoaded', () => {
             y: Math.random() * (window.innerHeight - rect.height)
         };
     };
+
+    const createFloatingHearts = () => {
+        const heartCount = 400;
+        
+        for (let i = 0; i < heartCount; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            
+            // Posizione casuale su tutto lo schermo
+            const randomX = Math.random() * window.innerWidth;
+            const randomY = Math.random() * window.innerHeight;
+            
+            heart.style.position = 'fixed'; // importante!
+            heart.style.left = `${randomX}px`;
+            heart.style.top = `${randomY}px`; // usa SOLO top, non bottom
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 3000);
+        }
+    };
+
+    yesButton.addEventListener('click', () => {
+        createFloatingHearts();
+        success();
+    });
+
+    const success = () => {
+        hideCard();
+    }
+
+    const hideCard = () => {
+        card.style.transition = 'opacity 1s';
+        card.style.opacity = '0';
+        setTimeout(() => {
+            card.style.display = 'none';
+        }, 1000);
+        
+    }
 
     noButton.addEventListener('mouseenter', function () {
         attemptCount++;

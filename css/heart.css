@@ -8,8 +8,8 @@
     transform:rotate(45deg);
     animation:example 0.3s linear 1s infinite alternate;
     z-index:0;
-    }
-    #heart:after{
+}
+#heart:after{
     width:30px;
     height:30px;
     border-radius:50%;
@@ -20,8 +20,8 @@
     background-color:red;
     animation:examp 0.5s linear 1s infinite alternate ;
     z-index:2;
-    }
-    #heart:before{
+}
+#heart:before{
     width:30px;
     height:30px;
     border-radius:50%;
@@ -32,8 +32,59 @@
     background-color:red;
     -webkit-animation:examp 0.5s linear 1s infinite alternate ;
     z-index:-1;
-    }
-    @-webkit-keyframes example{
+}
+@-webkit-keyframes example{
     0%   { -webkit-transform:scale(1,1) rotate(45deg);box-shadow:0 0 40px rgba(213,9,60,1);}
-        100%  {-webkit-transform:scale(1.1,1.1) rotate(45deg);box-shadow:0 0 40px rgba(213,9,60,.6);}
-        }
+    100%  {-webkit-transform:scale(1.1,1.1) rotate(45deg);box-shadow:0 0 40px rgba(213,9,60,.6);}
+}
+
+/* Cuori fluttuanti dal click Yes */
+.floating-heart {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    margin: 0px auto;
+    transform: rotate(45deg);
+    z-index: 999;
+    animation: floatUp 3s ease-in forwards;
+    pointer-events: none;
+}
+
+.floating-heart:after {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: -15px;
+    background-color: red;
+}
+
+.floating-heart:before {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    content: "";
+    top: -15px;
+    right: 0px;
+    background-color: red;
+}
+
+@keyframes floatUp {
+    0% {
+        bottom: -60px;
+        opacity: 1;
+        transform: rotate(45deg) scale(0.5);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        bottom: 100vh;
+        opacity: 0;
+        transform: rotate(45deg) scale(1);
+    }
+}
