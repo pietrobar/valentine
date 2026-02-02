@@ -54,8 +54,39 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    const createEnteringImages = () => {
+        // Immagine da sinistra
+        const obeso = document.createElement('img');
+        obeso.src = 'images/obeso.png';
+        obeso.style.position = 'fixed';
+        obeso.style.left = '-300px';
+        obeso.style.top = '50%';
+        obeso.style.transform = 'translateY(-50%)';
+        obeso.style.zIndex = '999';
+        obeso.style.transition = 'left 1s ease-in-out';
+        document.body.appendChild(obeso);
+
+        // Immagine da destra
+        const misci = document.createElement('img');
+        misci.src = 'images/misci.png';
+        misci.style.position = 'fixed';
+        misci.style.right = '-300px';
+        misci.style.top = '50%';
+        misci.style.transform = 'translateY(-50%)';
+        misci.style.zIndex = '999';
+        misci.style.transition = 'right 1s ease-in-out';
+        document.body.appendChild(misci);
+
+        // Trigger animazione
+        setTimeout(() => {
+            obeso.style.left = 'calc(50% - 200px)';
+            misci.style.right = 'calc(50% - 200px)';
+        }, 10);
+    };
+
     yesButton.addEventListener('click', () => {
         createFloatingHearts();
+        createEnteringImages();
         success();
     });
 
