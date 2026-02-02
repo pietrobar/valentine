@@ -1,4 +1,8 @@
 /* Generale */
+:root {
+    --base-size: 1rem;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #ffe6e6;
@@ -24,22 +28,22 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 10rem;
+    padding-top: 5rem;
 }
 
 .card {
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
+    padding: 1.25rem;
     text-align: center;
     max-width: 400px;
-    width: 100%;
+    width: 90%;
 }
 
 .card h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
 }
 
 /* Button */
@@ -47,10 +51,10 @@ button {
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 0.625rem 1.25rem;
+    font-size: 1rem;
     cursor: pointer;
-    margin: 5px;
+    margin: 0.3rem;
     transition: background-color 0.3s ease;
 }
 
@@ -64,8 +68,8 @@ button.no {
     color: black;
     position: fixed;
     transition: top 0.2s ease-out, left 0.2s ease-out;
-    padding: 5px 10px;
-    font-size: 10px;
+    padding: 0.3rem 0.625rem;
+    font-size: 0.625rem;
 
 }
 
@@ -83,7 +87,7 @@ button.no:hover {
     border-radius: 10px;
     text-align: center;
     max-width: 300px;
-    width: 100%;
+    width: 90%;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
@@ -113,7 +117,7 @@ button.no:hover {
 }
 
 .envelope p {
-    font-size: 24px;
+    font-size: 1.5rem;
     margin: 0;
     color: white;
     font-weight: bold;
@@ -137,6 +141,53 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+/* Media Query per schermi grandi */
+@media (min-width: 1024px) {
+    body {
+        padding: 4rem;
+    }
+
+    main {
+        padding-top: 10rem;
+    }
+
+    .card {
+        max-width: 800px;
+        padding: 2.5rem;
+    }
+
+    .card h1 {
+        font-size: 3rem;
+        margin-bottom: 2.5rem;
+    }
+
+    button {
+        padding: 1.25rem 2.5rem;
+        font-size: 2rem;
+        margin: 0.6rem;
+    }
+
+    button.no {
+        padding: 0.6rem 1.25rem;
+        font-size: 1.25rem;
+    }
+
+    .envelope {
+        max-width: 600px;
+        height: 20rem;
+    }
+
+    .lid {
+        border-left: 300px solid transparent;
+        border-right: 300px solid transparent;
+        border-top: 200px solid #ffb3d9;
+    }
+
+    .envelope p {
+        font-size: 3rem;
+    }
 }
 
 
