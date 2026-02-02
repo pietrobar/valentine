@@ -1,18 +1,60 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Pagina caricata con successo!');
-
     const noButton = document.getElementById('no-button');
+    let attemptCount = 0;
 
-    noButton.addEventListener('mouseover', () => {
-        const buttonRect = noButton.getBoundingClientRect();
+    const barkSound = new Audio('sounds/growl.mp3');
+    let audioUnlocked = false;
 
-        const maxX = window.innerWidth - buttonRect.width;
-        const maxY = window.innerHeight - buttonRect.height;
+    // Sblocco audio su vera interazione
+    document.addEventListener('click', () => {
+        barkSound.play()
+            .then(() => {
+                barkSound.pause();
+                barkSound.currentTime = 0;
+                audioUnlocked = true;
+            })
+            .catch(() => {});
+    }, { once: true });
 
-        const randomX = Math.random() * maxX;
-        const randomY = Math.random() * maxY;
+    const getRandomPosition = (element) => {
+        const rect = element.getBoundingClientRect();
+        return {
+            x: Math.random() * (window.innerWidth - rect.width),
+            y: Math.random() * (window.innerHeight - rect.height)
+        };
+    };
 
-        noButton.style.left = `${randomX}px`;
-        noButton.style.top = `${randomY}px`;
+    noButton.addEventListener('mouseenter', function () {
+        attemptCount++;
+
+        if (attemptCount >= 3) {
+            if (!audioUnlocked) return;
+
+            barkSound.currentTime = 0;
+            barkSound.play();
+
+            const img = document.createElement('img');
+            img.src = 'images/ollieminu.png';
+            img.style.position = 'fixed';
+            img.style.left = '-200px';
+            img.style.top = '50%';
+            img.style.transform = 'translateY(-50%)';
+            img.style.zIndex = '1000';
+            document.body.appendChild(img);
+
+            noButton.style.display = 'none';
+
+            barkSound.onended = () => {
+                img.remove();
+                noButton.style.display = '';
+            };
+
+            attemptCount = 0;
+            return;
+        }
+
+        const pos = getRandomPosition(this);
+        this.style.left = `${pos.x}px`;
+        this.style.top = `${pos.y}px`;
     });
 });
